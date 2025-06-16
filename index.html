@@ -41,22 +41,24 @@
   </style>
   <script>
     function checkAccessKey() {
-      var key = document.getElementById("access-key").value;
-      if (key === "ShadowKey123") { // Set your desired access key here
-        document.getElementById("access-container").classList.add("hidden");
-        document.getElementById("login-container").classList.remove("hidden");
+      var key = document.getElementById("access-key").value.trim(); // Trim spaces
+      var correctKey = "ShadowKey123";
+
+      if (key === correctKey) {
+        document.getElementById("access-container").style.display = "none"; // Hide access prompt
+        document.getElementById("login-container").style.display = "block"; // Show login form
       } else {
         alert("Invalid access key. Try again.");
       }
     }
 
     function checkLogin() {
-      var user = document.getElementById("username").value;
-      var pass = document.getElementById("password").value;
+      var user = document.getElementById("username").value.trim();
+      var pass = document.getElementById("password").value.trim();
 
       if (user === "Shadow" && pass === "Fjd55GUgy56jBj11") {
         alert("Login successful!");
-        window.location.href = "shadow.exe.html"; // Redirect to your website
+        window.location.href = "shadow.exe.html"; // Redirect to website
       } else {
         alert("Invalid credentials, please try again.");
       }
@@ -71,7 +73,7 @@
   <button onclick="checkAccessKey()">Submit</button>
 </div>
 
-<div id="login-container" class="hidden">
+<div id="login-container" class="hidden" style="display:none;">
   <h2>Login</h2>
   <input type="text" id="username" placeholder="Enter username">
   <input type="password" id="password" placeholder="Enter password">
