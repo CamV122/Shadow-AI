@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow.exe Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+    #login-container, #access-container {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 50px;
+    }
+    input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #00ffff;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function checkAccessKey() {
+      var key = document.getElementById("access-key").value;
+      if (key === "ShadowKey123") { // Set your desired access key here
+        document.getElementById("access-container").classList.add("hidden");
+        document.getElementById("login-container").classList.remove("hidden");
+      } else {
+        alert("Invalid access key. Try again.");
+      }
+    }
+
+    function checkLogin() {
+      var user = document.getElementById("username").value;
+      var pass = document.getElementById("password").value;
+
+      if (user === "Shadow" && pass === "Fjd55GUgy56jBj11") {
+        alert("Login successful!");
+        window.location.href = "shadow.exe.html"; // Redirect to your website
+      } else {
+        alert("Invalid credentials, please try again.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div id="access-container">
+  <h2>Enter Access Key</h2>
+  <input type="password" id="access-key" placeholder="Access Key">
+  <button onclick="checkAccessKey()">Submit</button>
+</div>
+
+<div id="login-container" class="hidden">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter username">
+  <input type="password" id="password" placeholder="Enter password">
+  <button onclick="checkLogin()">Login</button>
+</div>
+
+</body>
+</html>
